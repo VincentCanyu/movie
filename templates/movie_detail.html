@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block custom_css %}
+    <link rel="stylesheet" href="/static/css/movie_detail.css">
+{% endblock %}
+{% block custom_js %}
+{#    <script src="/static/js/spread.js"></script>#}
+{#    <script src="/static/js/jquery-3.3.1.js"></script>#}
+{% endblock %}
+
+{% block content %}
+
+    <div class="main_detail">
+        <h1 class="movie_name">{{ movie.name }}</h1>
+        <div class="movie_image"><img src="/{{ movie.image }}" style='width:300px;height:300px' alt=""></div>
+        <div class="details">
+            <p>导演：<a href="">{{ movie.director }}</a></p>
+            <p>主演：<a href="">{{ movie.to_star }}</a></p>
+            <p>类型：<a href="">
+                        {% for cate in movie.category.all %}
+                            {{ cate }}
+                        {% endfor %}
+                  </a>
+            </p>
+        </div>
+        <div class="describe">
+            <p>影片简介：</p>
+            <p>{{ movie_desc }}...<a href="javascript:void(0);" onclick="spread(this)" nid="{{ movie.id }}">(展开全部)</a></p>
+        </div>
+    </div>
+
+    <div class="relevant">
+        <h1>相关影视</h1>
+        <div class="relevant_div">
+            {% for movie in movies %}
+                <a href="{% url 'movie_detail' movie.id %}"><img style="width: 100px;height: 100px" src="/{{ movie.image }}" alt=""></a>
+                <a href="{% url 'movie_detail' movie.id %}">{{ movie.name }}</a>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="/static/js/jquery-3.3.1.js"></script>
+    <script>
+    {#    展开影片描述   #}
+        function spread(self)
+        {
+            var nid=$(self).attr('nid');
+            $.ajax({
+                url:'movie_detail_spread',
+                type:'POST',
+                data:{nid:nid},
+                success:function(arg)
+                {
+                    var retract='<a href="javascript:void(0);" onclick="retract(this)" nid="{{ movie.id }}">(收起)</a>';  {# 定义一个a标签（包含一个可以收起影片详情的事件），加到展开的电影描述后边。 #}
+                    $(self).parent().html(arg+retract);
+                }
+            })
+        }
+        {#    收起影片描述   #}
+        function retract(self)
+        {
+            var nid=$(self).attr('nid');
+            $.ajax({
+                url:'movie_detail_retract',
+                type:'POST',
+                data:{nid:nid},
+                success:function(arg)
+                {
+                    var spread='...<a href="javascript:void(0);" onclick="spread(this)" nid="{{ movie.id }}">(展开全部)</a>';
+                    $(self).parent().html(arg+spread);
+                }
+            })
+        }
+    </script>
+{% endblock %}

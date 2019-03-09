@@ -1,0 +1,30 @@
+.main_detail{
+    width: 570px;
+    height: 690px;
+    float: left;
+    margin-left: 50px;
+    position: relative;
+}
+.movie_image{
+    float: left;
+    height: 600px;
+}
+.details{
+    float: left;
+    margin-left: 40px;
+}
+.describe{
+    position:absolute;
+    left: 340px;
+    top: 200px;
+}
+.relevant{
+    float: right;
+    margin-right: 50px;
+}
+ul li {
+    list-style-type: none;
+}
+.relevant_div{
+    border: 1px dodgerblue solid;
+}

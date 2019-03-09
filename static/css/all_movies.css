@@ -1,0 +1,24 @@
+.all_movie_img div{
+    float: left;
+    margin-left: 50px;
+}
+.all_movie_img{
+    border: 1px lightskyblue solid;
+    width: 1050px;
+}
+.all_movie_img:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.pageturn ul{
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    margin-left: 500px;
+}
+.pageturn ul li{
+    list-style: none;
+    float: left;
+    margin-left:15px;
+}

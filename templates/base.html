@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    {% block custom_css %}{% endblock %}
+    {% block custom_js %}{% endblock %}
+</head>
+<body>
+
+<div class="div1">
+    <a class="logo" href="{% url 'index' %}">
+        <span class="logospan1">hey!</span><span class="logospan2">Movie</span>
+    </a>
+    <div class="search">
+        <input type="text">
+        <a href="#" class="search_box_right">搜索</a>
+    </div>
+
+    <div class="log_regi_div">
+        {% if user.is_authenticated %}
+            Hello <a href="#">{{ user.username }}</a>-
+            <a href="{% url 'logout' %}">退出登录</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="login">登录</a>  |
+            <a href="{% url 'register' %}" class="register">注册</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="crossband">
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'all_movies' category.id %}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% block content %}
+{% endblock %}
+</body>
+</html>

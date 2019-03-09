@@ -1,0 +1,125 @@
+body{
+    background-color: floralwhite;
+    width: 1255px;
+}
+a{
+    text-decoration: none;
+}
+.div1:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+/*logo*/
+.logo{
+    background-color: aliceblue;
+    width: 159px;
+    display: inline-block;
+    float: left;
+}
+.logo .logospan1{
+    color: yellowgreen;
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    font-size: x-large;
+}
+.logo .logospan2{
+    color: red;
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    font-size: xx-large;
+}
+
+/*ËÑË÷À¸*/
+.search{
+    float: left;
+    width: 410px;
+    margin-top: 12px;
+}
+.search input{
+    display: inline-block;
+    width: 333px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    padding: 7.5px;
+    border: 2px lightskyblue solid;
+}
+.search_box_right{
+    display: inline-block;
+    background-color: lightskyblue;
+    height:29px;
+    width: 38px;
+    margin-left: -5px;
+    margin-bottom: 10px;
+    border-top: 5px lightskyblue solid;
+    float: right;
+}
+
+/*µÇÂ¼×¢²á*/
+.log_regi_div{
+    float: right;
+    margin-right: 30px;
+    margin-top: 12px;
+    background-color: aliceblue;
+    padding: 10px;
+}
+
+/*ºáÌõ*/
+.crossband{
+    background-color: aliceblue;
+}
+.crossband ul{
+    overflow: hidden;
+    white-space: nowrap;
+}
+.crossband ul li{
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+}
+
+/*ÏÂ·½µÄÖ÷ÄÚÈÝ*/
+.action_li img{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+.action_movie{
+    margin-left: 80px;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 360px;
+    height: 300px;
+    border: 1px lightskyblue solid;
+    float: left;
+}
+.action_title{
+    background-color: lightskyblue;
+    display: inline-block;
+    width: 291px;
+}
+.action_more {
+    background-color: lightskyblue;
+    display: inline-block;
+    float: right;
+}
+.span{
+    float: left;
+    width: 900px;
+}
+
+/*ÁôÑÔ°å*/
+.message_board{
+    float: left;
+    margin-left: 55px;
+}
+.message_board h1{
+    background-color: lightskyblue;
+    width: 240px;
+    height: 50px;
+    color: azure;
+    text-align: center;
+}
+

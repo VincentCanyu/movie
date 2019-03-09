@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+<body>
+
+{% block content %}
+    <div class="span">
+
+{#    {% for movie in action_movies %}#}
+{#                <span class="action_movie">#}
+{#            <span>#}
+{#                <span class="action_title">最新动作片</span>#}
+{#                <a href="#" class="action_more">more >></a>#}
+{#            </span>#}
+{##}
+{#            <div>#}
+{#                {% for movie in action_movies %}#}
+{#                    <p><a href="{% url 'movie_detail' movie.id %}" class="action_li"><img src="{{ movie.image }}" alt="">{{ movie.name }}</a></p>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </span>#}
+{#    {% endfor %}#}
+        <span class="action_movie">
+            <span>
+                <span class="action_title">最新动作片</span>
+                <a href="#" class="action_more">more >></a>
+            </span>
+
+            <div>
+                {% for movie in action_movies %}
+                    <p><a href="{% url 'movie_detail' movie.id %}" class="action_li"><img src="{{ movie.image }}" alt="">{{ movie.name }}</a></p>
+                {% endfor %}
+            </div>
+        </span>
+
+        <span class="action_movie">
+            <span>
+                <span class="action_title">最新科幻片</span>
+                <a href="#" class="action_more">more >></a>
+            </span>
+
+            <div>
+                {% for movie in sicence_fiction_films %}
+                    <p><a href="{% url 'movie_detail' movie.id %}" class="action_li"><img src="{{ movie.image }}" alt="">{{ movie.name }}</a></p>
+                {% endfor %}
+            </div>
+        </span>
+
+        <span class="action_movie">
+            <span>
+                <span class="action_title">最新战争片</span>
+                <a href="#" class="action_more">more >></a>
+            </span>
+
+            <div>
+                {% for movie in war_films %}
+                    <p><a href="{% url 'movie_detail' movie.id %}" class="action_li"><img src="{{ movie.image }}" alt="">{{ movie.name }}</a></p>
+                {% endfor %}
+            </div>
+        </span>
+
+        <span class="action_movie">
+            <span>
+                <span class="action_title">最新爱情片</span>
+                <a href="#" class="action_more">more >></a>
+            </span>
+
+            <div>
+                {% for movie in affectional_movies %}
+                    <p><a href="{% url 'movie_detail' movie.id %}" class="action_li"><img src="{{ movie.image }}" alt="">{{ movie.name }}</a></p>
+                {% endfor %}
+            </div>
+        </span>
+
+        <span class="action_movie">
+            <span>
+                <span class="action_title">最新爱情动作片</span>
+                <a href="#" class="action_more">more >></a>
+            </span>
+
+            <div>
+                {% for movie in love_action_movies %}
+                    <p><a href="{% url 'movie_detail' movie.id %}" class="action_li"><img src="{{ movie.image }}" alt="">{{ movie.name }}</a></p>
+                {% endfor %}
+            </div>
+        </span>
+
+    </div>
+
+    <div class="message_board">
+        <form action="" method="post">
+            <h1>留言板</h1>
+            <textarea name="message_board" id="" style="background-color: aliceblue" cols="30" rows="12"></textarea>
+            <p><input type="submit" value="提交"></p>
+        </form>
+    </div>
+{% endblock %}
+
+</body>

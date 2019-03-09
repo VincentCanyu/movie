@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="/static/css/all_movies.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="all_movie_img">
+        {% for movie in movies.object_list %}
+            <div>
+                <p><a href="{% url 'movie_detail' movie.id %}"><img src="/{{ movie.image }}" style="width: 150px;height: 150px" alt=""></a></p>
+                <p><a href="{% url 'movie_detail' movie.id %}">{{ movie.name }}</a></p>  <!--电影名链接到电影详情-->
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="pageturn">
+            <ul class="pagelist">
+                {% if movies.has_previous %}  <!--如果有前一页-->
+                    <li class="long"><a href="?{{ movies.previous_page_number.querystring }}">上一页</a></li>  <!--就显示前一页-->
+                {% endif %}
+
+                {% for page in movies.pages %}
+                    {% if page %}
+                        {% ifequal page movies.number %}  <!--如果在当前页面-->
+                            <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>  <!--就显示当前页面-->
+                        {% else %}
+                            <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                        {% endifequal %}
+                    {% else %}
+                        <li class="none"><a href="">...</a></li>  <!--点击三个点不会反应因为href后边指向本地引号内没有内容-->
+                    {% endif %}
+                {% endfor %}
+                {% if movies.has_next %}  <!--有下一页的话-->
+                    <li class="long"><a href="?{{ movies.next_page_number.querystring }}">下一页</a></li>  <!--显示下一页-->
+                {% endif %}
+            </ul>
+    </div>
+{% endblock %}

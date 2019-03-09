@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - xuexi2@localhost" uuid="d8f07d26-2ca9-4cef-bfed-90ebea391bc1">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>xuexi2.*</schema-pattern>
+      <default-schemas>xuexi2.*</default-schemas>
+    </data-source>
+  </component>
+</project>
